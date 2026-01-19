@@ -21,9 +21,7 @@ dist/
 test-service/
 worker-service/src/main/resources
 worker-service/haproxy-docker/certs
-hr-service/src/main/resources/
-gateway-service/src/main/resources
-config-service/src/main/resources/
+
 
 
 

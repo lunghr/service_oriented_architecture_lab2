@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://example.com/hr-service"
+           targetNamespace="http://example.com/hr-service"
+           elementFormDefault="qualified">
+
+    <!-- Базовые типы данных -->
+    <xs:complexType name="ErrorResponse">
+        <xs:sequence>
+            <xs:element name="code" type="xs:int"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Операция 1: Fire Employee (увольнение сотрудника) -->
+    <xs:element name="FireEmployeeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="FireEmployeeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Операция 2: Index Salary -->
+    <xs:element name="IndexSalaryRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+                <xs:element name="coeff" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="CurrentSalaryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="currentSalary" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="IndexSalaryResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="newSalary" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- Операция 3: Say Hi (приветствие) -->
+    <xs:element name="SayHiRequest">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="SayHiResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="response" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Fault для обработки ошибок -->
+    <xs:element name="ServiceFault" type="tns:ErrorResponse"/>
+
+</xs:schema>
